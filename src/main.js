@@ -14,23 +14,23 @@ import './assets/sass/app.scss'
 Vue.config.productionTip = false
 
 Sentry.init({
-  Vue,
-  dsn: "https://2a1ed506f7124aaba8d015b8e0e4b9a6@o32379.ingest.sentry.io/6179395",
-  integrations: [
-    new BrowserTracing({
-      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-      tracingOrigins: ["localhost", "https://partner.sendyit.com/login", /^\//],
-    }),
-  ],
-  environment: process.env.DOCKER_ENV,
-  tracesSampleRate: 1.0,
-  logErrors: true
+    Vue,
+    dsn: "https://2a1ed506f7124aaba8d015b8e0e4b9a6@o32379.ingest.sentry.io/6179395",
+    integrations: [
+        new BrowserTracing({
+            routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+            tracingOrigins: ["localhost", "https://partner.sendyit.com/login", /^\//],
+        }),
+    ],
+    environment: svcConfig.DOCKER_ENV,
+    tracesSampleRate: 1.0,
+    logErrors: true
 });
 
 new Vue({
-  router,
-  store,
-  vuetify,
-  i18n,
-  render: h => h(App)
+    router,
+    store,
+    vuetify,
+    i18n,
+    render: h => h(App)
 }).$mount('#app')
