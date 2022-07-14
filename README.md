@@ -1,4 +1,4 @@
-# vue_partner_webapp
+# Vue partner webapp
 
 ## Project setup
 ```
